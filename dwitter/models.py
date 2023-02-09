@@ -27,6 +27,7 @@ def create_profile(sender, instance, created, **kwargs):
 
 
 class Dweet(models.Model):
+    objects = None
     user = models.ForeignKey(User, related_name="dweets", on_delete=models.DO_NOTHING)
     body = models.CharField(max_length=140)
     created_at = models.DateField(auto_now_add=True)

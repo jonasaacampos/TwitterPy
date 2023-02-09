@@ -34,7 +34,7 @@ def profile(request, pk):
 
     profile = Profile.objects.get(pk=pk)
 
-    if request.method == "POST":
+    if request.method == "POST" and profile is not None:
         current_user_profile = request.user.profile
         data = request.POST
         action = data.get("follow")
